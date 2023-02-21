@@ -3,7 +3,7 @@ import './Work.scss'
 import { AiFillEye, AiFillGithub } from 'react-icons/ai'
 import { motion } from 'framer-motion'
 
-import { AppWrap } from '../../wrapper'
+import { AppWrap, MotionWrap } from '../../wrapper'
 import { urlFor, sanityClient } from '../../client'
 
 interface WorkItem {
@@ -55,7 +55,7 @@ const Work = () => {
     <>
       <h2 className="head-text">My Creative <span>Portfolio</span> <br /> <span>Section</span></h2>
       <div className="app__work-filter">
-        {['UI/UX', 'Web App', 'Mobile App', 'React JS', 'All'].map((item, index) => (
+        {['UI/UX', 'Web App', 'React JS', 'Wordpress', 'All'].map((item, index) => (
           <div
             key={index}
             onClick={() => handleWorkFilter(item)}
@@ -129,4 +129,7 @@ const Work = () => {
   )
 }
 
-export default AppWrap(Work, 'work', 'mywork')
+export default AppWrap(
+  MotionWrap (Work, 'app__works'),
+    'work', 
+    'app__primarybg')

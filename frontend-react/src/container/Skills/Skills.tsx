@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Tooltip } from 'react-tooltip'
-import { AppWrap } from '../../wrapper'
+import { AppWrap, MotionWrap } from '../../wrapper'
 import { urlFor, sanityClient } from '../../client'
 import './Skills.scss'
 
@@ -68,7 +68,14 @@ const Skills = () => {
         </motion.div>
 
         <div className="app__skills-exp">
-          {experiences.map((experience, parentIndex) => (
+          {experiences.sort((a, b) => {
+            const yearA = Number(a.year);
+            const yearB = Number(b.year);
+            if (isNaN(yearA) || isNaN(yearB)) {
+              return 0;
+            }
+            return yearB - yearA;
+          }).map((experience, parentIndex) => (
             <motion.div
               className="app__skills-exp-item"
               key={parentIndex}
@@ -108,4 +115,7 @@ const Skills = () => {
   )
 }
 
-export default Skills
+export default AppWrap(
+  MotionWrap (Skills, 'app__skills' ),
+  'skills', 
+  'app__whitebg')
