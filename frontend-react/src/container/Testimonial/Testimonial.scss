@@ -135,6 +135,8 @@
             height: auto;
             object-fit: cover;
             filter: grayscale(1);
+            background-color: var(--white-color);
+            border-radius: 10px;
         }
 
         &:hover {

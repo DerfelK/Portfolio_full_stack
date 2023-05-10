@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import './About.scss'
 import { motion } from 'framer-motion'
 import { AppWrap, MotionWrap } from '../../wrapper'
@@ -40,10 +40,10 @@ const About = () => {
           key={about.title + index}
         >
           <img src={urlFor(about.imgUrl).url()} alt={about.title} />
-          <h2 className="bold-text" style={{ marginTop: 20 }}>
+          <h2 className="bold-text2" style={{ marginTop: 20 }}>
             {about.title}
           </h2>
-          <p className="p-text" style={{ marginTop: 10 }}>
+          <p className="p-text2" style={{ marginTop: 10 }}>
             {about.description}
           </p>
         </motion.div>

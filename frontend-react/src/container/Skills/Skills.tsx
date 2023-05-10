@@ -60,7 +60,7 @@ const Skills = () => {
               <div className="app__flex" style={{ backgroundColor: skill.bgColor }}>
                 <img src={urlFor(skill.icon).url()} alt={skill.name} />
               </div>
-              <p className="p-text">
+              <p className="p-text2">
                 {skill.name}
               </p>
             </motion.div>
@@ -81,7 +81,7 @@ const Skills = () => {
               key={parentIndex}
             >
               <div className="app__skills-exp-year">
-                <p className="bold-text">{experience.year}</p>
+                <p className="bold-text2">{experience.year}</p>
               </div>
               <motion.div className="app__skills-exp-works">
                 {experience.works.map((work, childIndex) => (
@@ -94,8 +94,8 @@ const Skills = () => {
                       data-tooltip-id={work.name}
                       key={work.name}
                     >
-                      <h4 className="bold-text">{work.name}</h4>
-                      <p className="p-text">{work.company}</p>
+                      <h4 className="bold-text2">{work.name}</h4>
+                      <p className="p-text2">{work.company}</p>
                     </motion.div>
                     <Tooltip 
                       id={work.name}

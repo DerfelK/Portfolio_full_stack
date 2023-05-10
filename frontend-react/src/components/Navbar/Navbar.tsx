@@ -1,27 +1,31 @@
-import React, { useState} from 'react'
-import './Navbar.scss'
+import { useState, useContext} from 'react'
+import { ThemeContext } from '../../context/ThemeContext'
+import styles from './Navbar.module.scss'
 import { images } from '../../constants'
 import { HiMenuAlt4, HiX } from 'react-icons/hi'
 import { motion } from 'framer-motion'
+import Button from '../Button/Button'
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false)
+  const { theme, setTheme } = useContext(ThemeContext)
 
   return (
-    <nav className="app__navbar">
-        <div className="app__navbar-logo">
+    <div className={`${styles.nav} ${styles[theme]}`}>
+        <nav className={styles.app__navbar}>
+        <div className={styles.app__navbarlogo}>
             <img src={images.logo} alt="Logo" />
         </div>
-        <ul className="app__navbar-links">
+        <ul className={styles.app__navbarlinks}>
             {['home', 'about', 'work', 'skills', 'contact'].map((item) => (
-                <li className="app__flex p-text" key={`link-${item}`}>
+                <li className={`${styles.app__flex} p-text`} key={`link-${item}`}>
                     <div/>
                         <a href={`#${item}`}>{item}</a>
                 </li>
             ))}
         </ul>
-
-        <div className="app__navbar-menu">
+        <Button />        
+        <div className={styles.app__navbarmenu}>
             <HiMenuAlt4 onClick={() => setToggle(true)}/>
 
             {toggle && (
@@ -42,7 +46,8 @@ const Navbar = () => {
                 </motion.div>
             )}
         </div>
-    </nav>
+        </nav>
+    </div>
   )
 }
 
